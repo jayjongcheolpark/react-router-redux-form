@@ -11,7 +11,7 @@ class PostsNew extends Component {
           type="text"
           {...field.input}
         /> 
-        {field.meta.error}
+        {field.meta.touched ? field.meta.error : ''}
       </div> 
     )
   }
@@ -23,6 +23,7 @@ class PostsNew extends Component {
   render() {
     const { handleSubmit } = this.props
 
+    // There are three states (pristine, touched, invalid)
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field
